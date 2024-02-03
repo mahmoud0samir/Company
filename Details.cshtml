@@ -1,0 +1,50 @@
+﻿@model DepartmentVM
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <a asp-controller="Department" asp-action="Index" class="btn btn-success">Return</a>
+
+            <!-- left column -->
+            <div class="col-xl-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Details for @Model.Name Department</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <input type="hidden" asp-for="ID" />
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="text" asp-for="Name" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" asp-for="Code" class="form-control" disabled>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                        
+                        <a asp-controller="Department" asp-action="Update" asp-route-id="@Model.ID" class="btn btn-primary">Update</a>
+                        <a asp-controller="Department" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+
+
+                        </div>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DepartmentVM>
+
+@{
+    ViewBag.Title = "Department";
+}
+
+<!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Department</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Department</a></li>
+                        <li class="breadcrumb-item active">Department Card</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div>
+    </div>
+
+<a asp-controller="Department" asp-action="Create" class="btn btn-primary">Create</a>
+<br />
+<br />
+
+
+
+
+    <!-- /.content-header -->
+    <table class="table table-hover table-bordered table-striped text-center font-weight-bold">
+        <thead class="thead-dark">
+            <tr>
+             <td>ID</td>
+            <td>Name</td>
+            <td>Code</td>
+            <td>Update</td>
+            <td>Details</td>
+            <td>Delete</td>
+    </tr>
+
+        </thead>
+        <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.Code</td>
+                <td>
+                    <a asp-controller="Department" asp-action="Update" asp-route-id="@item.ID" class="btn btn-success">Update</a>
+
+                </td>
+                <td>
+                    <a asp-controller="Department" asp-action="Details" asp-route-id="@item.ID" class="btn btn-info">Details</a>
+
+                </td>
+                <td>
+                    <a asp-controller="Department" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+        </div>

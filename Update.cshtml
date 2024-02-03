@@ -1,0 +1,66 @@
+﻿@model DepartmentVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+@TempData["Error"]
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <a asp-controller="Department" asp-action="Index" class="btn btn-primary">Return</a>
+        <br /><br />
+        <div class="row">
+            <!-- left column -->
+            <div class="col-xl-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Update @Model.Name Department</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-controller="Department" asp-action="Update" method="post">
+
+
+                        <input type="hidden" asp-for="ID" />
+                                    
+
+                        <div asp-validation-summary="All" class="text-danger font-weight-bold"></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="Name">Department Name</label>
+                                <input type="text" asp-for="Name" class="form-control">
+                                @* <span asp-validation-for="Name" class="text-danger font-weight-bold"></span>
+                                *@
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Code">Department Code</label>
+                                <input type="text" asp-for="Code" class="form-control">
+                                @* <span asp-validation-for="Code" class="text-danger font-weight-bold"></span>
+                                *@
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <input type="submit" value="Update" class="btn btn-primary" />
+                            <input type="reset" value="Cancle" class="btn btn-danger" />
+
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section JqueryValidation{
+    <script src="~/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }
+
